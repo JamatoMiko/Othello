@@ -1,0 +1,14 @@
+d:\Documents\C#\Othello\Othello\bin\Debug\net8.0-windows\Othello.exe
+d:\Documents\C#\Othello\Othello\bin\Debug\net8.0-windows\Othello.deps.json
+d:\Documents\C#\Othello\Othello\bin\Debug\net8.0-windows\Othello.runtimeconfig.json
+d:\Documents\C#\Othello\Othello\bin\Debug\net8.0-windows\Othello.dll
+d:\Documents\C#\Othello\Othello\bin\Debug\net8.0-windows\Othello.pdb
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.GeneratedMSBuildEditorConfig.editorconfig
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.AssemblyInfoInputs.cache
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.AssemblyInfo.cs
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.csproj.CoreCompileInputs.cache
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.dll
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\refint\Othello.dll
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.pdb
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.genruntimeconfig.cache
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\ref\Othello.dll
