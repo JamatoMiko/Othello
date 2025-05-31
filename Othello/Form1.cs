@@ -10,6 +10,7 @@ public partial class Form1 : Form
     public int CellSize { get; set; } = 48;
     public int PlayerColor { get; set; } = Board.BLACK;
     Board currentBoard;
+    ListBox historyListBox;
     public Form1()
     {
         InitializeComponent();
@@ -25,8 +26,17 @@ public partial class Form1 : Form
         };
         currentBoard = new Board(startBoard, Board.BLACK);
         currentBoard.Original = true;
+
+        historyListBox = new()
+        {
+            Location = new Point(currentBoard.Cols * CellSize, 0),
+            Size = new Size(8 * 8, currentBoard.Rows * CellSize)
+        };
+        Controls.Add(historyListBox);
+
         if (PlayerColor != Board.BLACK)
             _ = HandleAITurn();
+
         DoubleBuffered = true;
         Invalidate();
     }
@@ -47,6 +57,7 @@ public partial class Form1 : Form
         }
         if (candidateCells.Count == 0)
         {
+            AddHistory(currentBoard.Turn);
             currentBoard.ChangeTurn();
             await Task.Delay(1000);//ミリ秒
             return false;
@@ -78,6 +89,7 @@ public partial class Form1 : Form
             }
         }
         await Task.Delay(100 + candidateCells.Count * 100);//ミリ秒
+        AddHistory(currentBoard.Turn, candidateCells[0].Position.Row, candidateCells[0].Position.Col);
         currentBoard.PlaceStone(candidateCells[0].Position.Row, candidateCells[0].Position.Col);
         Invalidate();
         //プレイヤーが石を置けるか調べる
@@ -96,10 +108,22 @@ public partial class Form1 : Form
         }
         if (!canPlace)
         {
+            AddHistory(currentBoard.Turn);
             currentBoard.ChangeTurn();
             _ = HandleAITurn();
         }
         return true;
+    }
+
+    private void AddHistory(int turn, int row = -1, int col = -1)
+    {
+        var itemText = "";
+        itemText += turn switch { Board.BLACK => " B: ", Board.WHITE => "W: ", _ => "N: " };
+        if (row == -1 && col == -1)
+            itemText += "PASS";
+        else
+            itemText += $"{Board.Columns[col]}{row + 1}";
+        historyListBox.Items.Add($"{itemText}");
     }
 
     protected override void OnMouseClick(MouseEventArgs e)
@@ -118,6 +142,7 @@ public partial class Form1 : Form
                 {
                     if (currentBoard.StonesToBeChanged(row, col, out _, out _).Count > 0)
                     {
+                        AddHistory(currentBoard.Turn, row, col);
                         currentBoard.PlaceStone(row, col);
                         Invalidate();
                         _ = HandleAITurn();
@@ -138,6 +163,12 @@ public partial class Form1 : Form
             {
                 var rect = new Rectangle(col * CellSize + 1, row * CellSize + 1, CellSize - 2, CellSize - 2);
                 g.FillRectangle(new SolidBrush(Color.Green), rect);
+
+                if (row == 0)
+                    g.DrawString($"{Board.Columns[col]}", new Font("Arial", CellSize / 4), new SolidBrush(Color.Black), col * CellSize + CellSize / 4, row * CellSize);
+                if (col == 0)
+                    g.DrawString($"{row + 1}", new Font("Arial", CellSize / 4), new SolidBrush(Color.Black), col * CellSize, row * CellSize + CellSize / 4);
+
                 if (currentBoard.Stones[row, col] == Board.BLACK)
                 {
                     g.FillEllipse(new SolidBrush(Color.Black), rect);
@@ -146,6 +177,7 @@ public partial class Form1 : Form
                 {
                     g.FillEllipse(new SolidBrush(Color.White), rect);
                 }
+
                 var count = currentBoard.StonesToBeChanged(row, col, out int score, out int openness).Count;
                 if (count > 0)
                 {

@@ -12,3 +12,4 @@ d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\refint\Othello.dll
 d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.pdb
 d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.genruntimeconfig.cache
 d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\ref\Othello.dll
+d:\Documents\C#\Othello\Othello\obj\Debug\net8.0-windows\Othello.sourcelink.json

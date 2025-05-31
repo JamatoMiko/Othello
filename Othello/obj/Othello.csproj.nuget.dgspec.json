@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Documents\\C#\\Othello\\Othello\\Othello.csproj": {}
+    "D:\\Documents\\C#\\Othello\\Othello\\Othello.csproj": {}
   },
   "projects": {
-    "d:\\Documents\\C#\\Othello\\Othello\\Othello.csproj": {
+    "D:\\Documents\\C#\\Othello\\Othello\\Othello.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Documents\\C#\\Othello\\Othello\\Othello.csproj",
+        "projectUniqueName": "D:\\Documents\\C#\\Othello\\Othello\\Othello.csproj",
         "projectName": "Othello",
-        "projectPath": "d:\\Documents\\C#\\Othello\\Othello\\Othello.csproj",
+        "projectPath": "D:\\Documents\\C#\\Othello\\Othello\\Othello.csproj",
         "packagesPath": "C:\\Users\\yusuke\\.nuget\\packages\\",
-        "outputPath": "d:\\Documents\\C#\\Othello\\Othello\\obj\\",
+        "outputPath": "D:\\Documents\\C#\\Othello\\Othello\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yusuke\\AppData\\Roaming\\NuGet\\NuGet.Config"
